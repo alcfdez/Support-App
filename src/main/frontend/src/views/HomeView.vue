@@ -1,9 +1,12 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import FormRequest from '../components/FormRequest.vue';
+
+
+
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <FormRequest />
   </main>
 </template>
