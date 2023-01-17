@@ -7,7 +7,7 @@ import HeadPage from '@/components/HeadPage.vue';
   <main>
     <HeadPage />
     <nav class="nav">
-      <router-link to="/FormView" class="nav__link nav__link-form" href="">Fill Form Request</router-link>
+      <router-link id="link" to="/FormView" class="nav__link nav__link-form" href="">Fill Form Request</router-link>
 
       <router-link to="/ListView" class="nav__link nav__link-list" href="">List Request</router-link>
         
@@ -24,7 +24,7 @@ import HeadPage from '@/components/HeadPage.vue';
     height: 100vh;
     background: url("@/assets/img/fondo.png");
     background-size: cover;
-    
+
     .nav{
       height: 70%;
       @include m.flex(flex, column, nowrap, center, center);
@@ -40,10 +40,12 @@ import HeadPage from '@/components/HeadPage.vue';
         -webkit-box-shadow: 0px 18px 13px 6px rgba(56,51,56,0.59);
         -moz-box-shadow: 0px 18px 13px 6px rgba(56,51,56,0.59);
         box-shadow: 0px 18px 13px 6px rgba(56,51,56,0.59);
+        border-top: 2px solid transparent;
           &:hover{
-            transition: .3s;
+            border-color: white;
+            transition: .4s;
             background: map-get(c.$colors, "dark-blue");
-            color: map-get(c.$colors, "white");
+            color: map-get(c.$colors, "orange");
     }
         &-form{
           height: 3em;
@@ -54,7 +56,6 @@ import HeadPage from '@/components/HeadPage.vue';
           height: 2em;
           width: 18%;
         }
-
       }
     }
   }
