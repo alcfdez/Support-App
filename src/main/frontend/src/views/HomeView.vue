@@ -26,8 +26,8 @@ import HeadPage from '@/components/HeadPage.vue';
     background-size: cover;
 
     .nav{
+      @include m.flex(flex, column, auto, center, center);
       height: 70%;
-      @include m.flex(flex, column, nowrap, center, center);
       gap:2em;
       font-weight: bold;
 
@@ -40,11 +40,9 @@ import HeadPage from '@/components/HeadPage.vue';
         -webkit-box-shadow: 0px 18px 13px 6px rgba(56,51,56,0.59);
         -moz-box-shadow: 0px 18px 13px 6px rgba(56,51,56,0.59);
         box-shadow: 0px 18px 13px 6px rgba(56,51,56,0.59);
-        border-top: 2px solid transparent;
           &:hover{
-            border-color: white;
             transition: .4s;
-            background: map-get(c.$colors, "dark-blue");
+            background: map-get(c.$colors, "white");
             color: map-get(c.$colors, "orange");
     }
         &-form{
