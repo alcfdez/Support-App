@@ -39,10 +39,15 @@
 </template>
 
 <style lang="scss" scoped>
+
+@use "@/scss/mixins.scss" as m;
+@use "@/scss/colors.scss" as c;
+
+
 main {
     width: 100%;
     height: 100%;
-    background-color: rgb(204, 199, 199);
+    background-color: map-get(c.$colors, "green");
     display: flex;
     justify-content: center;
 
@@ -51,32 +56,31 @@ main {
 
 .__container-forms {
     width: 30%;
-    background-color: white;
+    background-color: map-get(c.$colors, "white");;
     padding: 2em;
-    border-radius: 1em;
+    @include m.borderRadius();
     font-weight: bold;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
    
 
     &__label {
-        background-color: white;
-        align-self: start;
+        background-color: map-get(c.$colors, "white");;
        
         
         &__inputbox {
-            border-radius: 1em;
+            @include m.borderRadius();
             height: 2em;
-            width: 80%;
+            width: 100%;
             padding: 0.5em;
-            background-color: rgb(160, 158, 158);
+            background-color: map-get(c.$colors, "grey");
             margin-bottom: 1em;
         
             &__description {
                 
-                background-color:rgb(160, 158, 158);
-                border-radius: 1em;
+                background-color:map-get(c.$colors, "green");
+                @include m.borderRadius();
                 margin-bottom: 1em;
             }
         }
@@ -85,13 +89,13 @@ main {
  
     }
 .button__one{
-    background-color: orangered;
-    border-radius: 1em;
+    background-color: map-get(c.$colors, "orange");;
+    @include m.borderRadius();
     padding: 0.7em;
     width: 80%;
     display: flex;
     justify-content: center;
-    color: white;
+    color: map-get(c.$colors, "white");
     margin-bottom: 1em;
 }
 .container__button{
@@ -99,21 +103,21 @@ main {
     display: flex;
     justify-content: center;
     gap: 1em;
-    color: white;
+    color: map-get(c.$colors, "white");
     
 .button__two{
-        border: .1em solid orangered;
-        border-radius: 1em;
+        border: .1em solid  map-get(c.$colors, "orange");
+        @include m.borderRadius();
         padding: 0 1.1em;
         font-size: 1em;
-        color: orangered;
+        color:   map-get(c.$colors, "orange");
     }
 .button__three{
-    border: .1em solid orangered;
-    border-radius: 1em;
+    border: .1em solid   map-get(c.$colors, "orange");
+    @include m.borderRadius();
     padding: .7em;
     font-size: 1em;
-    color: orangered;
+    color:   map-get(c.$colors, "orange");
     }
 
 
