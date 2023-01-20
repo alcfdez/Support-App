@@ -1,5 +1,5 @@
 <script setup>
-import internal from "stream";
+
 import { onBeforeMount, ref } from "vue";
 
 const props = defineProps({
@@ -43,7 +43,6 @@ onBeforeMount(async()=>{
 </script>
 
 <template>
-<<<<<<< HEAD
 
 
 
@@ -59,8 +58,7 @@ onBeforeMount(async()=>{
       <input id="list_element" type="text" readonly />
     </li>
   </ul>
-=======
-    <ul>
+    <!-- <ul>
         <li>
         <p>nombre y apellidos tiriti</p>
         <p>10/10/1000</p>
@@ -70,8 +68,7 @@ onBeforeMount(async()=>{
         <button><i class="fa-solid fa-pen"></i></button>
         <input id="list_element" type="text" readonly>
         </li>
-    </ul>
->>>>>>> ca6dbb72a2fa18a4dce2eb8e1366ac5b1c3c589d
+    </ul> -->
 </template>
 
 <style lang="scss" scoped></style>

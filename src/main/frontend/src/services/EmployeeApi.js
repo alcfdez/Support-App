@@ -3,10 +3,15 @@ class Employees {
 
  async fetchAll(){
     try {
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
-          .then(response => response.json())
-          .then(json => console.log(json))
-          let Employees = [];
+        const url = 'https://jsonplaceholder.typicode.com/todos/1';
+        const resp = await fetch(url);
+        const jsonData = await resp.json();
+        let Employees = [];
+        for (const employee of json.userId){
+          Employees.push(employee);
+          return Employees;
+        }
+        
         
     } catch (error) {
         console.log(error);

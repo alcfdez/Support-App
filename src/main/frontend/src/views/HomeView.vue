@@ -1,18 +1,12 @@
 <script setup>
-<<<<<<< HEAD
- 
-=======
 import FootPage from '@/components/FootPage.vue';
 import HeadPage from '@/components/HeadPage.vue';
->>>>>>> ca6dbb72a2fa18a4dce2eb8e1366ac5b1c3c589d
 </script>
 
 <template>
   <main>
-<<<<<<< HEAD
     
     <TheWelcome />
-=======
     <HeadPage />
     <nav class="nav">
       <router-link id="link" to="/FormView" class="nav__link nav__link-form" href="">Fill Form Request</router-link>
@@ -20,7 +14,6 @@ import HeadPage from '@/components/HeadPage.vue';
       <router-link to="/ListView" class="nav__link nav__link-list" href="">List Request</router-link>
         
     </nav>
->>>>>>> ca6dbb72a2fa18a4dce2eb8e1366ac5b1c3c589d
   </main>
     <FootPage />
 </template>
