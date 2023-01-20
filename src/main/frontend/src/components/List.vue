@@ -51,14 +51,14 @@ onBeforeMount(async()=>{
        <p> {{ employeesName }}</p>
        <p>{{ employeesDate }}</p>
        <p>{{ employeesRequest }}</p>
-       <!-- <p>{{ employeesDescription }}</p> -->
+       <p>{{ employeesDescription }}</p>
        <p>testeo</p>
       <button><i class="fa-solid fa-xmark"></i></button>
       <button><i class="fa-solid fa-pen"></i></button>
       <input id="list_element" type="text" readonly />
     </li>
   </ul>
-    <!-- <ul>
+    <ul>
         <li>
         <p>nombre y apellidos tiriti</p>
         <p>10/10/1000</p>
@@ -68,7 +68,14 @@ onBeforeMount(async()=>{
         <button><i class="fa-solid fa-pen"></i></button>
         <input id="list_element" type="text" readonly>
         </li>
-    </ul> -->
+    </ul>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
+</style>

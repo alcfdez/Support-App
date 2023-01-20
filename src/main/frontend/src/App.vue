@@ -1,13 +1,12 @@
 <script setup>
 // import { RouterLink, RouterView } from 'vue-router'
-import List from './components/List.vue';
 import HomeView from './views/HomeView.vue';
+import ListView from './views/ListView.vue';
 </script>
 
 <template>
-
-  <List/>
-  <HomeView/>
+  <!-- <HomeView/> -->
+  <ListView />
 
 </template>
 

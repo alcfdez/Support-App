@@ -1,8 +1,9 @@
 <script setup>
+import List from '../components/List.vue';
 </script>
 
 <template>
-SOY LA LIST
+    <List/>
 </template>
 
 <style scoped>
