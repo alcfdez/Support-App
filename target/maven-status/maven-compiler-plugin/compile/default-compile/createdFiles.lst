@@ -1,0 +1,6 @@
+api\payloads\EmployedPayload.class
+api\models\Employed.class
+api\views\View.class
+api\repositories\mysql\MysqlConnexion.class
+api\controllers\EmployedController.class
+api\models\Message.class
