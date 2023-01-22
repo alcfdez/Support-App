@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import api.contracts.InterfaceService;
 // import api.models.Employed;
 import api.models.Message;
 // import api.payloads.EmployedPayload;
@@ -21,7 +22,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class EmployedController extends HttpServlet { // Con este objeto tenemos acceso a muchos metodos para tratar las Api
     
-    private EmployedService employedService; // Usamos como atributo para poder acceder a el servicio desde TODA la clase
+    private InterfaceService employedService; // Usamos como atributo para poder acceder a el servicio desde TODA la clase
 
     public EmployedController() {
         this.employedService = new EmployedService();
@@ -53,4 +54,20 @@ public class EmployedController extends HttpServlet { // Con este objeto tenemos
 
     }
     
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        resp.setContentType("application/json;charset=utf-8"); // Seteamos de que tipo sera la respuesta
+        PrintWriter out = resp.getWriter(); // La salida
+
+        try {
+            Object employed = employedService.store(req.getReader()); // El controlador llama al servicio para pasarle lo que le ha llegado del body
+            out.println(View.show(employed));
+            resp.setStatus(HttpServletResponse.SC_CREATED); // Comprobamos que la respuesta se creo correstamente
+        } catch (Exception e) {
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            System.out.println("Error:" + e.getMessage());
+        }
+    }
+
 }

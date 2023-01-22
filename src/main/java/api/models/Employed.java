@@ -1,6 +1,8 @@
 package api.models;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,4 +103,30 @@ public class Employed {
         return "Employed [id=" + id + ", name=" + name + ", surname=" + surname + ", typeRequest=" + typeRequest
                 + ", descripcion=" + descripcion + ", repository=" + repository + ", table=" + table + "]";
     }
+
+    public EmployedPayload save(EmployedPayload employed) throws SQLException { // Creamos el metodo que nos guardara lo que recibamos de el controlador 
+       // IDA
+        String sql_insert = "INSERT INTO requests (nameEmployed, surname, typeRequest, descripcion) VALUES (?,?,?,?)";
+        PreparedStatement preparedStatement = repository.conn.prepareStatement(sql_insert);
+        preparedStatement.setString(1, employed.getName());
+        preparedStatement.setString(2, employed.getSurname());
+        preparedStatement.setString(3, employed.getTypeRequest());
+        preparedStatement.setString(4, employed.getDescripcion()); // Esta es la peticion para guardar lo que nos llega a la data base
+        preparedStatement.executeUpdate(); // Actualizamos
+        preparedStatement.close(); // Cerramos conexion
+
+    // VUELTA
+        Statement statement = repository.conn.createStatement(); // Rescuperamos el ultimo añadido para saber si se creo correctamente
+        String sql = String.format("Select * FROM %s ORDER BY id DESC LIMIT 1", table);
+        ResultSet rs= statement.executeQuery(sql);
+
+        while( rs.next()) {
+            employed.setId(rs.getLong("id"));
+            employed.setName(rs.getString("nameEmployed"));
+            employed.setSurname(rs.getString("surname"));
+        }
+
+        return employed;
+    }
 }
+  
