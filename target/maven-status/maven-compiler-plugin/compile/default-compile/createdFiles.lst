@@ -4,4 +4,5 @@ api\services\EmployedService.class
 api\views\View.class
 api\repositories\mysql\MysqlConnexion.class
 api\controllers\EmployedController.class
+api\contracts\interfaceService.class
 api\models\Message.class

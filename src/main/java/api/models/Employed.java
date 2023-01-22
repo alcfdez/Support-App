@@ -67,14 +67,14 @@ public class Employed {
 
         
 
-    public List<EmployedPayload> index() { // Este metodo nos devuevle todos los empleados
+    public List<Object> index() { // Este metodo nos devuevle todos los empleados
 
         try {
             Statement statement = repository.conn.createStatement(); // Con esta linea y la creaccion de arriba tengo acceso a la conexion
             String sql = String.format("SELECT * FROM %s", table); // Le mandamos a la base d edatos esta consulta
             ResultSet rs = statement.executeQuery(sql); // Hacemos una consulta sql, aqui ya tenemos las filas
 
-            List<EmployedPayload> employeds = new ArrayList<>(); // Creamos una lista de Payloads
+            List<Object> employeds = new ArrayList<>(); // Creamos una lista de Payloads
 
             while(rs.next()) { // Un bucle que si hay siguiente elemento haga algo, en este caso nos crea la lista de payloads creada arriba, rellenando todos los parametros necesarios
                 EmployedPayload employed = new EmployedPayload();

@@ -6,7 +6,7 @@ import java.util.List;
 
 // import api.models.Employed;
 import api.models.Message;
-import api.payloads.EmployedPayload;
+// import api.payloads.EmployedPayload;
 import api.services.EmployedService;
 import api.views.View;
 import jakarta.servlet.ServletException;
@@ -38,7 +38,7 @@ public class EmployedController extends HttpServlet { // Con este objeto tenemos
         
         // Tenemos que crear un tryCatch para controlar el status de la peticion y controlarla en caso de errores
         try {
-            List<EmployedPayload> employeds =  employedService.index(); // Pasamos a la vista la lista de nuestros empleados en payloads
+            List<Object> employeds =  employedService.index(); // Pasamos a la vista la lista de nuestros empleados en payloads
             out.println(View.show(employeds)); // Recibo los empleados y respondemos al cliente
             resp.setStatus(HttpServletResponse.SC_OK); // La respuesta devolverá un status 200 siempre que salga todo bien
             out.close(); // Tenemos que cerrar la comunicacion cuando acabe la conexion
