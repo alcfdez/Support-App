@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import api.models.Employed;
+// import api.models.Employed;
 import api.models.Message;
 import api.payloads.EmployedPayload;
+import api.services.EmployedService;
 import api.views.View;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,6 +20,13 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/api/employed")
 
 public class EmployedController extends HttpServlet { // Con este objeto tenemos acceso a muchos metodos para tratar las Api
+    
+    private EmployedService employedService; // Usamos como atributo para poder acceder a el servicio desde TODA la clase
+
+    public EmployedController() {
+        this.employedService = new EmployedService();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { // Esta clase nos devuelve la respuesta, la peticion y si no nos devueleve un error
 
@@ -26,11 +34,11 @@ public class EmployedController extends HttpServlet { // Con este objeto tenemos
         
         PrintWriter out = resp.getWriter(); // El objeto que devolveremos en la salida.
 
-        Employed employed = new Employed();
-        List<EmployedPayload> employeds =  employed.index(); // Pasamos a la vista la lista de nuestros empleados en payloads
-
+        // EmployedService employedService = new EmployedService();  // La responsabilidad de pedir al modelo los datos es del SERVICIO NO DEL CONTROLADOR
+        
         // Tenemos que crear un tryCatch para controlar el status de la peticion y controlarla en caso de errores
         try {
+            List<EmployedPayload> employeds =  employedService.index(); // Pasamos a la vista la lista de nuestros empleados en payloads
             out.println(View.show(employeds)); // Recibo los empleados y respondemos al cliente
             resp.setStatus(HttpServletResponse.SC_OK); // La respuesta devolverá un status 200 siempre que salga todo bien
             out.close(); // Tenemos que cerrar la comunicacion cuando acabe la conexion
