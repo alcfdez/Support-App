@@ -32,7 +32,7 @@ public class EmployedController extends HttpServlet { // Con este objeto tenemos
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { // Esta clase nos devuelve la respuesta, la peticion y si no nos devueleve un error
 
         resp.setContentType("application/json;charset=UTF-8"); // Tenemos que definir que tipo sera la respuesta que vamos a recibir.
-        
+        resp.addHeader("Access-Control-Allow-Origin", "*");
         PrintWriter out = resp.getWriter(); // El objeto que devolveremos en la salida.
 
         // EmployedService employedService = new EmployedService();  // La responsabilidad de pedir al modelo los datos es del SERVICIO NO DEL CONTROLADOR
@@ -58,6 +58,8 @@ public class EmployedController extends HttpServlet { // Con este objeto tenemos
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setContentType("application/json;charset=utf-8"); // Seteamos de que tipo sera la respuesta
+        resp.addHeader("Access-Control-Allow-Origin", "*");
+        
         PrintWriter out = resp.getWriter(); // La salida
 
         try {
