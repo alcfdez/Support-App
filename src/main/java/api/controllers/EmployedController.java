@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import api.contracts.InterfaceEmployedRepository;
 import api.contracts.InterfaceService;
 // import api.models.Employed;
 import api.models.Message;
+import api.repositories.mysql.MysqlEmployedRepository;
 // import api.payloads.EmployedPayload;
 import api.services.EmployedService;
 import api.views.View;
@@ -25,7 +27,8 @@ public class EmployedController extends HttpServlet { // Con este objeto tenemos
     private InterfaceService employedService; // Usamos como atributo para poder acceder a el servicio desde TODA la clase
 
     public EmployedController() {
-        this.employedService = new EmployedService();
+        InterfaceEmployedRepository db = new MysqlEmployedRepository();
+        this.employedService = new EmployedService(db);
     }
 
     @Override
@@ -46,9 +49,8 @@ public class EmployedController extends HttpServlet { // Con este objeto tenemos
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST); // Si da error devolvemos un bad request por ejemplo
             Message message = new Message(); // Creamos una clase message para poder tener una clase que se ocupe de los mensaje 
-            message.setMessage("Error en el traspaso de datos" + e.getMessage()); // Le seteamos el valor de error por que estamos en el catch
+            message.setMessage("Error en el traspaso de datos d" + e.getMessage()); // Le seteamos el valor de error por que estamos en el catch
             out.println(View.show(message)); // Imprimimos el message llamando a nuestra clase vista con el metodo show que creamos
-
         }
 
 
