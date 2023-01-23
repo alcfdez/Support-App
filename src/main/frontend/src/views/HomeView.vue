@@ -1,6 +1,7 @@
 <script setup>
 import FootPage from '@/components/FootPage.vue';
 import HeadPage from '@/components/HeadPage.vue';
+import { onBeforeMount } from '@vue/runtime-core';
 </script>
 
 <template>
