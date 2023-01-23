@@ -1,8 +1,0 @@
-api\payloads\EmployedPayload.class
-api\models\Employed.class
-api\services\EmployedService.class
-api\views\View.class
-api\repositories\mysql\MysqlConnexion.class
-api\controllers\EmployedController.class
-api\contracts\InterfaceService.class
-api\models\Message.class
