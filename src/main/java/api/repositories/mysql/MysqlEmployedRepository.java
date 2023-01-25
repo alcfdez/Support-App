@@ -49,5 +49,25 @@ public class MysqlEmployedRepository implements InterfaceEmployedRepository {
 
         return rs;
     }
+
+    @Override
+    public ResultSet update(EmployedPayload employed) throws SQLException {
+        String sql_insert = "UPDATE requests SET nameEmployed = ?, surname = ?, typeRequest = ? , descripcion = ? WHERE id=?";
+        PreparedStatement preparedStatement = repository.conn.prepareStatement(sql_insert);
+        preparedStatement.setString(1, employed.getName());
+        preparedStatement.setString(2, employed.getSurname());
+        preparedStatement.setString(3, employed.getTypeRequest());
+        preparedStatement.setString(4, employed.getDescripcion());
+        preparedStatement.setLong(5, employed.getId()); // Esta es la peticion para guardar lo que nos llega a la data base
+        preparedStatement.executeUpdate(); // Actualizamos
+        preparedStatement.close(); // Cerramos conexion
+
+    // VUELTA
+        Statement statement = repository.conn.createStatement(); // Rescuperamos el ultimo añadido para saber si se creo correctamente
+        String sql = String.format("Select * FROM %s ORDER BY id DESC LIMIT 1", table);
+        ResultSet rs = statement.executeQuery(sql);
+
+        return rs;
+    }
     
 }

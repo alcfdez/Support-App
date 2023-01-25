@@ -74,4 +74,23 @@ public class EmployedController extends HttpServlet { // Con este objeto tenemos
         }
     }
 
+
+
+@Override
+protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { 
+    resp.setContentType("application/json;charset=UTF-8"); 
+    resp.addHeader("Access-Control-Allow-Origin", "*");
+    PrintWriter out = resp.getWriter(); 
+
+    try {
+        Object employed = employedService.modificated(req.getReader()); // El controlador llama al servicio para pasarle lo que le ha llegado del body
+        out.println(View.show(employed));
+        resp.setStatus(HttpServletResponse.SC_OK); // Comprobamos que la respuesta se creo correstamente
+    } catch (Exception e) {
+        resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        System.out.println("Error:" + e.getMessage());
+    }
+
+}
+
 }
