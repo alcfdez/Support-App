@@ -4,7 +4,7 @@
     <main>
        
         <form class="__container-forms">
-            <label class="__container-forms__label" for="firstname">First name ;:</label>
+            <label class="__container-forms__label" for="firstname">First name:</label>
             <input type="text" class="__container-forms__label__inputbox" name="firstname" />
 
             <label class="__container-forms__label" for="surname">Surname:</label>
@@ -23,7 +23,7 @@
             </select>
 
             <label class="__container-forms__label" for="type">Description of your Request:</label>
-            <textarea name="name-description" class="__container-forms__label__inputbox__description" cols="30" rows="5"></textarea>
+            <textarea name="name-description" class="__container-forms__label__inputbox__description" cols="33" rows="5"></textarea>
                 <button class="button__one" type="button">
                     Submit</button>
                 <div class="container__button">
@@ -47,22 +47,25 @@
 main {
     width: 100%;
     height: 100%;
-    background-color: map-get(c.$colors, "green");
     display: flex;
     justify-content: center;
-
+    background: url("@/assets/img/fondo.png");
+    background-size: cover;
+    
     
 }
 
 .__container-forms {
     width: 30%;
-    background-color: map-get(c.$colors, "white");;
+    background-color: map-get(c.$colors, "white");
     padding: 2em;
     @include m.borderRadius();
     font-weight: bold;
-    display: flex;
+    display: flex;;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
    
 
     &__label {
@@ -71,18 +74,17 @@ main {
         
         &__inputbox {
             @include m.borderRadius();
-            height: 2em;
             width: 100%;
             padding: 0.5em;
             background-color: map-get(c.$colors, "grey");
             margin-bottom: 1em;
+            
         
             &__description {
-                
-                background-color:map-get(c.$colors, "green");
-                @include m.borderRadius();
-                margin-bottom: 1em;
-            }
+                    background-color:map-get(c.$colors, "grey");
+                    @include m.borderRadius();
+                    margin-bottom: 1em;
+                }
         }
     }
 
@@ -92,32 +94,43 @@ main {
     background-color: map-get(c.$colors, "orange");;
     @include m.borderRadius();
     padding: 0.7em;
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     color: map-get(c.$colors, "white");
     margin-bottom: 1em;
+    border:2px solid map-get(c.$colors, "orange");
+    
+    cursor: pointer;
+    &:hover{ 
+            background-color: map-get(c.$colors, "white");
+            color: map-get(c.$colors, "orange");
+            border:2px solid map-get(c.$colors, "orange");
+    }
 }
 .container__button{
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
     gap: 1em;
     color: map-get(c.$colors, "white");
+    cursor: pointer;
+    margin: 0 auto;
     
-.button__two{
+.button__two,
+.button__three{
         border: .1em solid  map-get(c.$colors, "orange");
         @include m.borderRadius();
-        padding: 0 1.1em;
+        padding:  .7em;
         font-size: 1em;
         color:   map-get(c.$colors, "orange");
-    }
-.button__three{
-    border: .1em solid   map-get(c.$colors, "orange");
-    @include m.borderRadius();
-    padding: .7em;
-    font-size: 1em;
-    color:   map-get(c.$colors, "orange");
+        cursor: pointer;
+        width: 47%;
+        &:hover{ 
+            background-color: map-get(c.$colors, "orange");
+            color: map-get(c.$colors, "white");
+        }
+
     }
 
 
