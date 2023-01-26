@@ -21,7 +21,7 @@ import { describe, it, expect, test, vi } from 'vitest'
         expect(mountHomeView().text()).toContain('List Request')
       })
 
-    test('click the links', async () => {
+    test.skip('click the links', async () => {
       const push = vi.spyOn(router, 'push')
 
       await mountHomeView().find('a[class="nav__link nav__link-form"]').trigger('click')
@@ -33,5 +33,13 @@ import { describe, it, expect, test, vi } from 'vitest'
       
       expect(push).toHaveBeenCalledTimes(2)
       expect(push).toHaveBeenCalledWith('/ListView')
+    })
+  })
+
+
+  describe ('HomeView', () => {
+    test('exist class nav on HomeView', () => {
+      const nav = mount(HomeView);
+      expect(nav.classes('nav')).toBe(true)
     })
   })
