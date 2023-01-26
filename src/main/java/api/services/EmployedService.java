@@ -73,7 +73,7 @@ public class EmployedService implements InterfaceService {
         // Implementamos el metodo que creamos en el servicio para cumplir con el contrato y devolver el empleado añadido en la base de datos
         try {
             EmployedPayload employedPayload =  gson.fromJson(body, EmployedPayload.class); // Convertimos a formato json lo que nos mando el controlador y se lo devolvemos
-            ResultSet rs = repository.update(employedPayload);// Debemos llevar al modelo para insetarlo en la base de datos
+            ResultSet rs = repository.delete(0);// Debemos llevar al modelo para insetarlo en la base de datos
 
             while( rs.next()){
                 employed.setId(rs.getLong("id"));
