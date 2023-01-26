@@ -1,10 +1,14 @@
 <script setup>
+import FormRequest from '../components/FormRequest.vue';
 import FootPage from '@/components/FootPage.vue';
 import HeadPage from '@/components/HeadPage.vue';
+import { onBeforeMount } from '@vue/runtime-core';
 </script>
 
 <template>
   <main>
+    
+    <TheWelcome />
     <HeadPage />
     <nav class="nav">
       <router-link id="link" to="/FormView" class="nav__link nav__link-form" href="">Fill Form Request</router-link>
