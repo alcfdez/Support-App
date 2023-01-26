@@ -6,6 +6,8 @@ import HeadPage from '@/components/HeadPage.vue';
 
 <template>
   <main>
+    
+    <TheWelcome />
     <HeadPage />
     <nav class="nav">
       <router-link id="link" to="/FormView" class="nav__link nav__link-form" href="">Fill Form Request</router-link>
