@@ -20,10 +20,10 @@ onBeforeMount(async () => {
 <template>
   <HeadPage />
 
-  <main>
     <nav class="nav">
       <router-link to="/FormEditView" class="nav__link nav__link-list" href="">Form Edit</router-link>
     </nav>
+  <main>
     <ul class="wrapper">
       <li class="wrapper__request" v-for="employed in employeds" :key="employed">
         <button class="wrapper__btn btn-delete">
@@ -56,7 +56,7 @@ main {
     @include m.borderRadius();
     @include m.flex(flex, column, nowrap, center, center);
     gap: 1em;
-
+    padding: 1em;
     width: 60%;
 
     &__request {
@@ -70,7 +70,12 @@ main {
       background-color: map-get(c.$colors, "white");
       padding: 1em;
       @include m.borderRadius();
-      
+      margin: .5em;
+      color: map-get(c.$colors, "orange");
+      &:hover{
+        cursor: pointer;
+        opacity: .8;
+      }
 
       
     }
@@ -78,8 +83,6 @@ main {
 }
 
 .nav__link{
-  margin: 0 auto;
-  
-
+  margin-left: 5em;
 }
 </style>

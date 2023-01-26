@@ -24,6 +24,12 @@ const props = defineProps({
 .request {
   @include m.flex(flex, column, nowrap, center, center);
   width: 100%;
+  color:white;
+  div{
+  @include m.flex(flex, row, wrap, space-evenly, center);
+  width: 100%;
+
+  }
   
 }
 
