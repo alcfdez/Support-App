@@ -19,11 +19,14 @@ onBeforeMount(async () => {
 
 <template>
   <HeadPage />
+  <nav class="nav">
+      <router-link to="/FormEditView" class="nav__link nav__link-list" href="">Form Edit</router-link>
+    </nav>
   <ul class="wrapper">
     <li  v-for="employed in employeds" :key="employed">
       <List :employed="employed" />
       <button><i class="fa-solid fa-xmark"></i></button>
-      <button><i class="fa-solid fa-pen"></i></button>
+      <router-link to="/ListView" class="nav__link nav__link-list" href=""><button><i class="fa-solid fa-pen">asdas</i></button></router-link>  
       <input id="list_element" type="text" readonly />
     </li>
   </ul>
@@ -45,5 +48,11 @@ li{
     display: flex;
     justify-content: center;
     
+}
+
+.nav__link{
+  margin: 0 auto;
+  
+
 }
 </style>
