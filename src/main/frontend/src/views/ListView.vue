@@ -1,58 +1,29 @@
 <script setup>
 import List from '../components/List.vue';
 import {ref,onBeforeMount} from 'vue';
-import Employed from '../services/EmployeeApi';
+import Employed from '../services/EmployeeApi.js';
 
-
-let employeds = ref([]);
 let serviceApi = new Employed([]);
 
 serviceApi.fetchEmployed;
-
-
-
-
+let employeds = ref([]);
 
 onBeforeMount(async()=>{
   employeds.value = await serviceApi.fetchEmployed();
- // fetchEmployed();]
   
+  console.log(employeds.value)
 })
-
-
-
-
-
-// let employeesId = ref();
-// let employeesName = ref();
-// let employeesSurname = ref();
-// let employeesDate = ref();
-// let employeesDescription = ref();
-// let employeesTypeRequest = ref();
-
-// onBeforeMount(async () => {
-//   const res = await fetch(props.id);
-//   const data = await res.json();
-//   employees.value = data;
-//   employeesId.value = employees.value.id;
-//   employeesName.value = employees.value.name;
-//   employeesSurname.value = employees.value.surname;
-//   employeesDate.value = employees.value.date;
-//   employeesDescription.value = employees.value.description;
-//   employeesTypeRequest.value = employees.value.typeRequest;
-// });
-
-
 </script>
 
 <template>
-    <List/>
-  
-hola
-
-
-
-
+    <ul>
+      <li v-for="employed in employeds">
+      <List :employed="employed"/>
+      <button><i class="fa-solid fa-xmark"></i></button>
+      <button><i class="fa-solid fa-pen"></i></button>
+      <input id="list_element" type="text" readonly />
+    </li>
+  </ul>
 </template>
 
 <style scoped>
