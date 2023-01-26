@@ -4,7 +4,7 @@
     <main>
        
         <form class="__container-forms">
-            <label class="__container-forms__label" for="firstname">First name:</label>
+            <label class="__container-forms__label" for="firstname">First name ;:</label>
             <input type="text" class="__container-forms__label__inputbox" name="firstname" />
 
             <label class="__container-forms__label" for="surname">Surname:</label>
