@@ -3,7 +3,7 @@ class Employed {
 
   async fetchEmployed() {
     try {
-      const url = "https://jsonplaceholder.typicode.com/users";
+      const url = "http://localhost:8080/support-app/api/employed";
       const resp = await fetch(url);
       const jsonData = await resp.json();
       let employeds = [];
