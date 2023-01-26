@@ -47,10 +47,11 @@
 main {
     width: 100%;
     height: 100%;
-    background-color: map-get(c.$colors, "orange");
     display: flex;
     justify-content: center;
-
+    background: url("@/assets/img/fondo.png");
+    background-size: cover;
+    
     
 }
 
@@ -60,9 +61,11 @@ main {
     padding: 2em;
     @include m.borderRadius();
     font-weight: bold;
-    display: flex;
+    display: flex;;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
    
 
     &__label {
@@ -71,11 +74,11 @@ main {
         
         &__inputbox {
             @include m.borderRadius();
-            height: 2em;
             width: 100%;
             padding: 0.5em;
             background-color: map-get(c.$colors, "grey");
             margin-bottom: 1em;
+            
         
             &__description {
                     background-color:map-get(c.$colors, "grey");
