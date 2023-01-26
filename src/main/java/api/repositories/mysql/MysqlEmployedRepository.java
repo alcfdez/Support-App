@@ -74,8 +74,8 @@ public class MysqlEmployedRepository implements InterfaceEmployedRepository {
      
 
     @Override
-    public ResultSet delete(int id) throws SQLException {
-        String query = "delete from users where id = ?";
+    public ResultSet delete(Long id) throws SQLException {
+        String query = "delete from requests where id = ?";
         PreparedStatement preparedStmt = repository.conn.prepareStatement(query);
         preparedStmt.setLong(1, id);
         preparedStmt.executeUpdate(); // Actualizamos

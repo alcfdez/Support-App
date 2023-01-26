@@ -11,6 +11,6 @@ public interface InterfaceEmployedRepository {
     public ResultSet getAll();
     public ResultSet save(EmployedPayload people) throws SQLException;
     public ResultSet update(EmployedPayload people) throws SQLException;
-    public ResultSet delete(int id) throws SQLException;
+    public ResultSet delete(Long id) throws SQLException;
 
 }
