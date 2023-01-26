@@ -4,7 +4,7 @@
     <main>
        
         <form class="__container-forms">
-            <label class="__container-forms__label" for="firstname">First name ;:</label>
+            <label class="__container-forms__label" for="firstname">First name:</label>
             <input type="text" class="__container-forms__label__inputbox" name="firstname" />
 
             <label class="__container-forms__label" for="surname">Surname:</label>
@@ -47,7 +47,7 @@
 main {
     width: 100%;
     height: 100%;
-    background-color: map-get(c.$colors, "green");
+    background-color: map-get(c.$colors, "orange");
     display: flex;
     justify-content: center;
 
@@ -56,7 +56,7 @@ main {
 
 .__container-forms {
     width: 30%;
-    background-color: map-get(c.$colors, "white");;
+    background-color: map-get(c.$colors, "white");
     padding: 2em;
     @include m.borderRadius();
     font-weight: bold;
